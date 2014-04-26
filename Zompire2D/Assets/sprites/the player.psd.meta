@@ -24,9 +24,9 @@ TextureImporter:
   maxTextureSize: 1024
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 1
     mipBias: -1
-    wrapMode: -1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -44,6 +44,33 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: the player_0
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 259
+        width: 449
+        height: 515
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: the player_1
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 555
+        width: 114
+        height: 389
+      alignment: 0
+      pivot: {x: .5, y: .5}
+    - name: the player_2
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 555
+        width: 120
+        height: 396
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
