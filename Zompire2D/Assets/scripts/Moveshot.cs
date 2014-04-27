@@ -6,9 +6,14 @@ public class Moveshot : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
-
 		rigidbody2D.velocity = transform.up * speed;
-	
 	}
+
+	void OnCollisionEnter2D(Collision2D hit){
+		if(hit.gameObject.tag == "Wall"){
+			Destroy(gameObject);
+		}
+
+	}
+
 }
