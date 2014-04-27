@@ -6,11 +6,15 @@ public class simple_movement : MonoBehaviour {
 	public Transform position1;
 	public Transform position2;
 	private float nextfire;
+	public float playerhealth = 100.0f;
 
 	public GameObject bullet;
 
 	public float playerposy;
 	public float firerate = 0.5f;
+
+	public AudioSource shoot;
+	public AudioSource cactushurt;
 
 
 	private bool shotpos = true;
@@ -36,9 +40,17 @@ public class simple_movement : MonoBehaviour {
 				Instantiate(bullet, position2.position, transform.rotation);
 				shotpos = true;
 			}
+			shoot.Play();
 		}
+	}
 
+	void OnCollisionEnter2D(Collision2D hit){
+		if( hit.gameObject.name == "cacti"){
+			playerhealth -= 1.0f;
+			Debug.Log(playerhealth);
+			rigidbody2D.AddForce(-rigidbody2D.velocity * 5000.0f); 
+			cactushurt.Play();
 
-
+		}
 	}
 }
