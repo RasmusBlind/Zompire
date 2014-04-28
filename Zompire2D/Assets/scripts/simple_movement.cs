@@ -15,6 +15,7 @@ public class simple_movement : MonoBehaviour {
 
 	public AudioSource shoot; // this is the Audio for the shot
 	public AudioSource cactushurt; // this is the Audio for when the player is hurt by the cactur
+	public AudioSource dead;
 	private bool hitbycactus = false; // this is use to make the push back of the character
 	public float pushbackforce = 5; // this will set the pushback force when the character is hit by the cactus
 
@@ -50,7 +51,8 @@ public class simple_movement : MonoBehaviour {
 			shoot.Play(); // play the soud of shooting
 		}
 		if (playerhealth < 0.0f){
-			Destroy(gameObject); // if the player has 0 health he is kill by removing him from the game
+			dead.Play ();
+			Destroy(gameObject,5); // if the player has 0 health he is kill by removing him from the game
 
 		}
 	}
