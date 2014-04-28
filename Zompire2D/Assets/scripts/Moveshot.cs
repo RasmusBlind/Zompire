@@ -10,7 +10,7 @@ public class Moveshot : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D hit){
-		if(hit.gameObject.tag == "Wall" || hit.gameObject.tag == "Zombie"){
+		if(hit.gameObject.tag == "Wall" || hit.gameObject.tag == "Zombie" || hit.gameObject.tag == "cactus"){
 			Destroy(gameObject);
 		}
 

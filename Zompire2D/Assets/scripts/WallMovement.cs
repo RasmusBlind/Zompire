@@ -24,6 +24,7 @@ public class WallMovement : MonoBehaviour {
 		}
 		if(player.transform.position.y >= transform.position.y) { //if the players position is equal to or above the y value 2 - so if the player has passed this place on the level ...
 			newPosition = positionB; // the new position of the wall will be equal to positionB
+			audio.Play();
 
 		}
 
