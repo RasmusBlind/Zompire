@@ -44,6 +44,15 @@ TextureImporter:
     textureFormat: -2
     compressionQuality: 50
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: Shot_0
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 196
+        width: 468
+        height: 476
+      alignment: 0
+      pivot: {x: .5, y: .5}
   spritePackingTag: 
   userData: 
