@@ -5,9 +5,14 @@ using System.Collections;
 
 public class ZombieInteractionScript : MonoBehaviour {
 
+	public Transform BloodSplash;
+	//public Transform SkullInTheSand;
+
 	void OnCollisionEnter2D(Collision2D Hit){
 		if (Hit.gameObject.tag == "Bullet"){
 			Destroy (gameObject);
+			Instantiate(BloodSplash,transform.position,Quaternion.identity);
+			//Instantiate(SkullInTheSand,transform.position,Quaternion.identity);
 		}
 	}
 }
