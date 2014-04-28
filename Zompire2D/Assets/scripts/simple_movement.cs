@@ -2,63 +2,63 @@
 using System.Collections;
 
 public class simple_movement : MonoBehaviour {
-	public float speed = 2.0f;
-	public Transform position1;
-	public Transform position2;
-	private float nextfire;
-	public static float playerhealth = 100.0f;
+	public float speed = 2.0f; // this float will change the speed of the charcater it is pubilc for testing reasons
+	public Transform position1; // this is the possition of one of the pistol barrols
+	public Transform position2; // this is the possition of the other barrols
+	private float nextfire; // this is the timer to next shot 
+	public static float playerhealth = 100.0f; // this float is the players health it is static so it is easier to acces from other scripts
 
-	public GameObject bullet;
+	public GameObject bullet; // this GameObject will hold the projectile tha the player can shoot
 
-	public float playerposy;
-	public float firerate = 0.5f;
+	public float playerposy; // this is use as refrense to move the camera (should also be static)
+	public float firerate = 0.5f; // this float will set how much time between each shot
 
-	public AudioSource shoot;
-	public AudioSource cactushurt;
-	private bool hitbycactus = false;
-	public float pushbackforce = 5;
+	public AudioSource shoot; // this is the Audio for the shot
+	public AudioSource cactushurt; // this is the Audio for when the player is hurt by the cactur
+	private bool hitbycactus = false; // this is use to make the push back of the character
+	public float pushbackforce = 5; // this will set the pushback force when the character is hit by the cactus
 
-	private bool shotpos = true;
+	private bool shotpos = true; // with this bool i change barrol of the gun shot
 	void Update (){
-		float moveHorizontal = Input.GetAxis ("Horizontal");
-		float moveVertical = Input.GetAxis ("Vertical");
+		float moveHorizontal = Input.GetAxis ("Horizontal"); // this will get a number between -1 and 1 we  use it to move the player in the x axis
+		float moveVertical = Input.GetAxis ("Vertical"); // this will get a number between -1 and 1 we  use it to move the player in the y axis
 
-		Vector2 movement = new Vector2(moveHorizontal,moveVertical);
-
+		Vector2 movement = new Vector2(moveHorizontal,moveVertical); // here we make the move vector
+		 
 		if (hitbycactus == false){
-			rigidbody2D.velocity = movement * speed;
+			rigidbody2D.velocity = movement * speed; // this will move the character if he is not hit by the cactus
 		} else {
-			hitbycactus = false;
-			rigidbody2D.velocity = movement * speed * -pushbackforce;
+			hitbycactus = false; // make sure that we go make to not hit by cactus 
+			rigidbody2D.velocity = movement * speed * -pushbackforce; // here we will push back the character if he is hit by cactus
 		}
-		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-		transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
+		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition); // here we get the position of the mouse
+		transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position); // here we make sure that the character is facing the mouse
 
-		playerposy = transform.position.y;
+		playerposy = transform.position.y;// here we get the possiton of the player in the y axis this is use to move the camera in another script
 
-		if (Input.GetButton("Fire1") & Time.time > nextfire){
-			nextfire = firerate + Time.time;
-			if (shotpos == true){
-				Instantiate(bullet, position1.position, transform.rotation);
-				shotpos = false;
+		if (Input.GetButton("Fire1") & Time.time > nextfire){ // check for input of fire and check if the character can shoot 
+			nextfire = firerate + Time.time;// set the new timer 
+			if (shotpos == true){ // of shoot pos is true we use one barrol if false the other
+				Instantiate(bullet, position1.position, transform.rotation); // instantiate the bullet at one of the barrols
+				shotpos = false; // changes barrol
 			} else {
-				Instantiate(bullet, position2.position, transform.rotation);
-				shotpos = true;
+				Instantiate(bullet, position2.position, transform.rotation); // instantiate the bullet at the other barrol
+				shotpos = true; // changes barrol
 			}
-			shoot.Play();
+			shoot.Play(); // play the soud of shooting
 		}
 		if (playerhealth < 0.0f){
-			Destroy(gameObject);
+			Destroy(gameObject); // if the player has 0 health he is kill by removing him from the game
 
 		}
 	}
 
 	void OnCollisionEnter2D(Collision2D hit){
-		if( hit.gameObject.name == "cacti"){
+		if( hit.gameObject.name == "cacti"){// if the player collide with the cactus he will loose health and the pushback bool will be true
 			playerhealth -= 1.0f;
 			Debug.Log(playerhealth);
 			hitbycactus = true; 
-			cactushurt.Play();
+			cactushurt.Play(); // plays sound of cacturhurt 
 
 		}
 	}

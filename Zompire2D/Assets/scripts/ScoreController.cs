@@ -8,7 +8,7 @@ public class ScoreController : MonoBehaviour {
 	void OnGUI() {
 		string scoreText = "Score: " + score;
 
-		GUI.Label(new Rect(10, 10, 100, 20), scoreText); //where the gui box will be placed
+		GUI.Label(new Rect(50, 70, 100, 20), scoreText); //where the gui box will be placed
 	}	
 
 }

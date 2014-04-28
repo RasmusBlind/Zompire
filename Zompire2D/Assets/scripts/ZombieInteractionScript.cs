@@ -11,9 +11,17 @@ public class ZombieInteractionScript : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D Hit){
 		if (Hit.gameObject.tag == "Bullet"){
 			ScoreController.score+=10; //The score increments
-
 			Destroy (gameObject);
 			Instantiate(BloodSplash,transform.position,Quaternion.identity);
 		}
+	}
+	void OnCollisionStay2D(Collision2D playerHit){
+		if (playerHit.gameObject.tag == "Player"){
+			simple_movement.playerhealth -= 0.5f;
+
+			Debug.Log(simple_movement.playerhealth);
+
+		}
+		
 	}
 }
