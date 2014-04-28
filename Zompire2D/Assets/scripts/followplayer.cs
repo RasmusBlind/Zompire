@@ -7,8 +7,9 @@ public class followplayer : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		mypos = new Vector3 (0,1,-20);
+		if (Player){
+			mypos = new Vector3 (0,1,-20);
 			transform.position = Player.position +  mypos;
-	
+		}
 	}
 }

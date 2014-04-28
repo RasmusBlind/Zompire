@@ -3,7 +3,7 @@ using System.Collections;
 
 public class enemy_direction : MonoBehaviour {
 
-	public Transform target;
+	private GameObject target;
 	public float moveSpeed;
 
 	void Start () {
@@ -12,7 +12,8 @@ public class enemy_direction : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.rotation = Quaternion.LookRotation(Vector3.forward, target.position-transform.position);
+		target = GameObject.FindGameObjectWithTag("Player");
+		transform.rotation = Quaternion.LookRotation(Vector3.forward, target.transform.position - transform.position);
 		rigidbody2D.velocity = transform.up * moveSpeed;
 
 	}

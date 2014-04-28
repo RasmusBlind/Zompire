@@ -42,13 +42,17 @@ public class simple_movement : MonoBehaviour {
 			}
 			shoot.Play();
 		}
+		if (playerhealth < 0.0f){
+			Destroy(gameObject);
+
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D hit){
 		if( hit.gameObject.name == "cacti"){
 			playerhealth -= 1.0f;
 			Debug.Log(playerhealth);
-			rigidbody2D.AddForce(-rigidbody2D.velocity * 5000.0f); 
+			rigidbody2D.AddForce(-transform.up * 5000.0f); 
 			cactushurt.Play();
 
 		}
