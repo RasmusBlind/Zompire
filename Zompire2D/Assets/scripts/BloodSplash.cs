@@ -3,13 +3,8 @@ using System.Collections;
 
 public class BloodSplash : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	private float Seconds= 1.0f;
+	void Start() {
+		Destroy(gameObject,5);
 	}
 }

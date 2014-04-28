@@ -6,7 +6,7 @@ public class simple_movement : MonoBehaviour {
 	public Transform position1;
 	public Transform position2;
 	private float nextfire;
-	public float playerhealth = 100.0f;
+	public static float playerhealth = 100.0f;
 
 	public GameObject bullet;
 
@@ -15,7 +15,8 @@ public class simple_movement : MonoBehaviour {
 
 	public AudioSource shoot;
 	public AudioSource cactushurt;
-
+	private bool hitbycactus = false;
+	public float pushbackforce = 5;
 
 	private bool shotpos = true;
 	void Update (){
@@ -24,8 +25,12 @@ public class simple_movement : MonoBehaviour {
 
 		Vector2 movement = new Vector2(moveHorizontal,moveVertical);
 
-		rigidbody2D.velocity = movement * speed;
-
+		if (hitbycactus == false){
+			rigidbody2D.velocity = movement * speed;
+		} else {
+			hitbycactus = false;
+			rigidbody2D.velocity = movement * speed * -pushbackforce;
+		}
 		Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 		transform.rotation = Quaternion.LookRotation(Vector3.forward, mousePos - transform.position);
 
@@ -52,7 +57,7 @@ public class simple_movement : MonoBehaviour {
 		if( hit.gameObject.name == "cacti"){
 			playerhealth -= 1.0f;
 			Debug.Log(playerhealth);
-			rigidbody2D.AddForce(-transform.up * 5000.0f); 
+			hitbycactus = true; 
 			cactushurt.Play();
 
 		}
