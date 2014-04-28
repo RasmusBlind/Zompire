@@ -14,7 +14,6 @@ public class ZombieInteractionScript : MonoBehaviour {
 
 			Destroy (gameObject);
 			Instantiate(BloodSplash,transform.position,Quaternion.identity);
-			//Instantiate(SkullInTheSand,transform.position,Quaternion.identity);
 		}
 	}
 }
