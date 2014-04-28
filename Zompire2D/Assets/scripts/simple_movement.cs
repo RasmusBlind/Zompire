@@ -18,6 +18,8 @@ public class simple_movement : MonoBehaviour {
 	private bool hitbycactus = false; // this is use to make the push back of the character
 	public float pushbackforce = 5; // this will set the pushback force when the character is hit by the cactus
 
+	public static bool gotkey = false;
+
 	private bool shotpos = true; // with this bool i change barrol of the gun shot
 	void Update (){
 		float moveHorizontal = Input.GetAxis ("Horizontal"); // this will get a number between -1 and 1 we  use it to move the player in the x axis
@@ -59,7 +61,10 @@ public class simple_movement : MonoBehaviour {
 			Debug.Log(playerhealth);
 			hitbycactus = true; 
 			cactushurt.Play(); // plays sound of cacturhurt 
-
+		}
+		if ( hit.gameObject.tag == "key"){
+			gotkey = true;
+			Destroy(hit.gameObject);
 		}
 	}
 }

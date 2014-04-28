@@ -22,14 +22,14 @@ public class WallMovement : MonoBehaviour {
 		if(player.transform.position.y < transform.position.y) { //if the player's position is below the y value of 2 (which is the y value of the walls y coordinate in both position A and B) ...
 			newPosition = positionA; //the position will be at position A (0,2)
 		}
-		if(player.transform.position.y >= transform.position.y) { //if the players position is equal to or above the y value 2 - so if the player has passed this place on the level ...
+		if(player.transform.position.y >= transform.position.y ) { //if the players position is equal to or above the y value 2 - so if the player has passed this place on the level ...
 			newPosition = positionB; // the new position of the wall will be equal to positionB
 			audio.Play();
 
 		}
-
-		transform.position = Vector2.Lerp (transform.position, newPosition, Time.deltaTime); //by using lerp the wall goes from position A to B (when activated)
-	
+		if(simple_movement.gotkey == true){
+			transform.position = Vector2.Lerp (transform.position, newPosition, Time.deltaTime); //by using lerp the wall goes from position A to B (when activated)
+		}
 	}
 
 }
