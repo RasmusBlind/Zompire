@@ -7,3 +7,4 @@ Zompire2D/Assets/scene1.unity
 Zompire2D/ProjectSettings/TagManager.asset
 Zompire2D/Assets/Rasmusscene.unity
 Zompire2D/Assets/prefab/Enemy.prefab
+Zompire2D/Assets/scripts/enemy_direction.cs
