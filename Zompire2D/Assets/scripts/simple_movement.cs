@@ -5,6 +5,7 @@ public class simple_movement : MonoBehaviour {
 	public float speed = 2.0f; // this float will change the speed of the charcater it is pubilc for testing reasons
 	public Transform position1; // this is the possition of one of the pistol barrols
 	public Transform position2; // this is the possition of the other barrols
+
 	private float nextfire; // this is the timer to next shot 
 	public static float playerhealth = 100.0f; // this float is the players health it is static so it is easier to acces from other scripts
 
@@ -13,8 +14,13 @@ public class simple_movement : MonoBehaviour {
 	public float playerposy; // this is use as refrense to move the camera (should also be static)
 	public float firerate = 0.5f; // this float will set how much time between each shot
 
+	private bool playonce = true;
+	private float dethtime;  
+	public GameObject skull;
+
 	public AudioSource shoot; // this is the Audio for the shot
 	public AudioSource cactushurt; // this is the Audio for when the player is hurt by the cactur
+	public AudioSource deathrattle; // This is the audio for when the player dies
 	private bool hitbycactus = false; // this is use to make the push back of the character
 	public float pushbackforce = 5; // this will set the pushback force when the character is hit by the cactus
 
@@ -50,7 +56,17 @@ public class simple_movement : MonoBehaviour {
 			shoot.Play(); // play the soud of shooting
 		}
 		if (playerhealth < 0.0f){
-			Destroy(gameObject); // if the player has 0 health he is kill by removing him from the game
+
+			if(playonce == true){
+				dethtime = Time.time + 1.2f;
+				deathrattle.Play ();
+				playonce = false;
+			}
+
+			if(dethtime<Time.time){
+				Destroy(gameObject); // if the player has 0 health he is kill by removing him from the game
+				Instantiate(skull,transform.position,transform.rotation);
+			}
 
 		}
 	}
@@ -65,6 +81,7 @@ public class simple_movement : MonoBehaviour {
 		if ( hit.gameObject.tag == "key"){
 			gotkey = true;
 			Destroy(hit.gameObject);
+
 		}
 	}
 }

@@ -7,8 +7,8 @@ public class showhealth : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		curhealth = simple_movement.playerhealth/100;
-
-		transform.localScale = new Vector3(1 * curhealth ,1,1);
-
+		if(curhealth>=0.0f){
+			transform.localScale = new Vector3(1 * curhealth ,1,1);
+		}
 	}
 }
