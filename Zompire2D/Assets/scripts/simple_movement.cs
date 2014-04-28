@@ -65,6 +65,8 @@ public class simple_movement : MonoBehaviour {
 			if(dethtime<Time.time){
 				Destroy(gameObject); // if the player has 0 health he is kill by removing him from the game
 				Instantiate(skull,transform.position,transform.rotation);
+				Gamemanagement.gameisalive = false;
+				playgameoversound.playonce = true;
 			}
 
 

@@ -7,8 +7,13 @@ using System.Collections;
 
 	// Update is called once per frame
 	void Update () {
-
-		mypos = new Vector3 (-15,simple_movement.playerposy,-20);
-		transform.position = mypos;
+		if (Gamemanagement.gameisalive == true){
+			mypos = new Vector3 (-15,simple_movement.playerposy,-20);
+			transform.position = mypos;
+		}
+		if ( Gamemanagement.gameisalive == false){
+			mypos = new Vector3 (15,-33.79374f,-20);
+			transform.position = mypos;
+		}
 	}
 }

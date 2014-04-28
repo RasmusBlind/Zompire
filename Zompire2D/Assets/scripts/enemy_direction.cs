@@ -16,5 +16,10 @@ public class enemy_direction : MonoBehaviour {
 		transform.rotation = Quaternion.LookRotation(Vector3.forward, target.transform.position - transform.position);
 		rigidbody2D.velocity = transform.up * moveSpeed;
 
+		if(Gamemanagement.gameisalive == false){
+			Destroy(gameObject);
+
+		}
+
 	}
 }

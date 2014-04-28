@@ -16,9 +16,12 @@ public class Gamemanagement : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (Input.GetKeyUp(KeyCode.P) && gameisalive == false){
+
 			Instantiate(player, playerpos, Quaternion.identity);
 			Instantiate(spawner, spawnerpos , Quaternion.identity);
 			gameisalive = true;
+			ScoreController.score = 0;
+			simple_movement.playerhealth = 100;
 		}
 	}
 }
