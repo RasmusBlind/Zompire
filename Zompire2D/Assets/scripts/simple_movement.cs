@@ -54,7 +54,7 @@ public class simple_movement : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D hit){
-		if( hit.gameObject.name == "cacti"){// if the player collide with the cactus he will loose health and the pushback bool will be true
+		if( hit.gameObject.tag == "cactus"){// if the player collide with the cactus he will loose health and the pushback bool will be true
 			playerhealth -= 1.0f;
 			Debug.Log(playerhealth);
 			hitbycactus = true; 

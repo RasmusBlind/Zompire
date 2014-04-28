@@ -3,13 +3,12 @@ using System.Collections;
 
 public class showhealth : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
+	private float curhealth;
 	// Update is called once per frame
 	void Update () {
-	
+		curhealth = simple_movement.playerhealth/100;
+
+		transform.localScale = new Vector3(1 * curhealth ,1,1);
+
 	}
 }
