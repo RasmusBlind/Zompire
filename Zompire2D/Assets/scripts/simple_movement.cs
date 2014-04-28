@@ -10,7 +10,7 @@ public class simple_movement : MonoBehaviour {
 
 	public GameObject bullet; // this GameObject will hold the projectile tha the player can shoot
 
-	public float playerposy; // this is use as refrense to move the camera (should also be static)
+	public static float playerposy; // this is use as refrense to move the camera (should also be static)
 	public float firerate = 0.5f; // this float will set how much time between each shot
 
 	public AudioSource shoot; // this is the Audio for the shot
