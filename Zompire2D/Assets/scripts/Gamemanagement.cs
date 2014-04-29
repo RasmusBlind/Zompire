@@ -20,7 +20,9 @@ public class Gamemanagement : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyUp(KeyCode.P) && gameisalive == false){ // look for if the key P has been pressed and if the game is not alive if not instantiate player and spawner
 
-			Instantiate(player, playerpos, Quaternion.identity); // instantiate the player at his position
+			GameObject go = Instantiate(player, playerpos, Quaternion.identity) as GameObject; // instantiate the player at his position
+			followplayer.instance.playerTransform  = go.transform;
+
 			Instantiate(spawner, spawnerpos , Quaternion.identity); // instantiate the spawner at its position
 			gameisalive = true; // set the game to be alive
 			ScoreController.score = 0; // set the score to 0 in the ScoreController Script

@@ -5,11 +5,20 @@ using System.Collections;
 	private Vector3 mypos; // used to move the cam to different possitions 
 	public AudioListener myaudiooncam; // here goes the audiolistener of the gameObject
 	public static bool win = false;
+	public Transform playerTransform;
+
+	public static followplayer instance; //SINGELTON (THE WEIRD EDITION)
+
+	void Awake(){
+		instance = this;
+	}
 
 	void Update () {
 		// if the game is alive we will move to the players position
 		if (Gamemanagement.gameisalive == true){
-			mypos = new Vector3 (-15,simple_movement.playerposy,-1);
+			//mypos = new Vector3 (-15,simple_movement.playerposy,-1);
+			mypos = new Vector3 (-15,playerTransform.position.y,-1);
+
 			transform.position = mypos;
 		}
 		// if the game is dead and it is the first time the game is played  we will move the cam to the titel screen
