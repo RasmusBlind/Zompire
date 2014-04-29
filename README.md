@@ -1,7 +1,7 @@
 peoject members:
-Rasmus Bloustrød Lind 20125491
+Rasmus Bloustrï¿½d Lind 20125491
 Sam Alix Nilson
-Simone Vinkel
+Simone Patricia Vinkel 20125494
 =======
 Zompire 2D
 
