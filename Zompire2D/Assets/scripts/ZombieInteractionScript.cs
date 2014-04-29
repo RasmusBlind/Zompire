@@ -8,7 +8,7 @@ public class ZombieInteractionScript : MonoBehaviour {
 	public Transform BloodSplash; // holds a blood splash to be spawned on dead
 	public GameObject key; // holds the key
 
-	private float dropchance = 2.0f; // drop chance of the key 
+	private float dropchance = 1.0f; // drop chance of the key 
 	private float droprate; // a float to check if the key should drop
 
 
