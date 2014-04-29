@@ -6,8 +6,8 @@ public class WallMovement : MonoBehaviour {
 
 
 	private Vector2 newPosition; //variable that stores the new position x and y
-	private float xpos;
-	private float ypos;
+	private float xpos; // x pos of the wall
+	private float ypos; // y pos of the wall
 
 	void Awake() {
 
