@@ -30,6 +30,7 @@ public class Gamemanagement : MonoBehaviour {
 			firsttime = false; // make sure that next time game stop it will go to game over screen in stead of titel
 			keyhasdropped = false; // so the key can drop agian
 			simple_movement.gotkey = false;
+			followplayer.win = false;
 
 		}
 
