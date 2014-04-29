@@ -3,13 +3,10 @@ using System.Collections;
 
 public class PlayWinSound : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
 	void Update () {
-	
+		if ( playgameoversound.playonce == true && Gamemanagement.gameisalive == false && Gamemanagement.firsttime == false && followplayer.win == true){
+			audio.Play();
+			playgameoversound.playonce = false;
+		}
 	}
 }
