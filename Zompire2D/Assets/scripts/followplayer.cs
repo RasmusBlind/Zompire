@@ -24,15 +24,15 @@ using System.Collections;
 		}
 		// will move the camera to the win screen
 		if ( Gamemanagement.gameisalive == false && Gamemanagement.firsttime == false && win == true){
-			mypos = new Vector3 (25,-10,-1);
+			mypos = new Vector3 (50,-10,-1);
 			transform.position = mypos;
 		}
 		// enable and disable the audio listener of the camera this is because we want a audiolistener on the cam when we see the titel screen and the gameover screen
 		// and we do not want to have two audiolistener
 		if (Gamemanagement.gameisalive == true){
-			myaudiooncam.enabled = false;
+			myaudiooncam.enabled = false; // disable the audiolistener
 		} else {
-			myaudiooncam.enabled = true;
+			myaudiooncam.enabled = true; // enable the audiolistener
 		}
 	}
 }
