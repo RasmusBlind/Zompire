@@ -27,6 +27,7 @@ public class Gamemanagement : MonoBehaviour {
 			simple_movement.playerhealth = 100; // set the health to 100 in the movement script
 			firsttime = false; // make sure that next time game stop it will go to game over screen in stead of titel
 			keyhasdropped = false; // so the key can drop agian
+			simple_movement.gotkey = false;
 
 		}
 

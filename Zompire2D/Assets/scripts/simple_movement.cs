@@ -69,6 +69,7 @@ public class simple_movement : MonoBehaviour {
 				Gamemanagement.gameisalive = false;// set the game to be "dead"
 				playgameoversound.playonce = true; // next time the player die we can play the audio again
 				Debug.Log(playerhealth);
+				playerposy = 0.0f;
 			}
 
 

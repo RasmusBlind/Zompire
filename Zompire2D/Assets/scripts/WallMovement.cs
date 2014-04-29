@@ -8,16 +8,16 @@ public class WallMovement : MonoBehaviour {
 	private Vector2 newPosition; //variable that stores the new position x and y
 	private float xpos; // x pos of the wall
 	private float ypos; // y pos of the wall
+	private Vector2 positionA;
 
-	void Awake() {
-
+	void Start() {
+		positionA =	transform.position;
 		xpos = transform.position.x;
 		ypos = transform.position.y;
 
 	}
 
 	void Update() {
-		Vector2 positionA =	transform.position; //position A is the first position (from A) - it is placed at (0, 2) on the level
 		Vector2 positionB = new Vector2(xpos - 11, ypos); //position B is the end position (to B) - it will be placed at (-11, 2) on the level
 
 
