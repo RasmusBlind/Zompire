@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Gamemanagement : MonoBehaviour {
 	public static bool gameisalive = false;
+	public static bool firsttime = true;
 	public GameObject player;
 	public GameObject spawner;
 	private Vector3 playerpos;
@@ -22,6 +23,9 @@ public class Gamemanagement : MonoBehaviour {
 			gameisalive = true;
 			ScoreController.score = 0;
 			simple_movement.playerhealth = 100;
+			firsttime = false;
+
 		}
+
 	}
 }

@@ -32,6 +32,10 @@ public class SpawnZombieFromHole : MonoBehaviour {
 		if (timessmaller <= 0){
 			Destroy(gameObject);
 		}
+		if (Gamemanagement.gameisalive == false){
+			Destroy(gameObject);
+
+		}
 	
 	}
 }

@@ -11,8 +11,12 @@ using System.Collections;
 			mypos = new Vector3 (-15,simple_movement.playerposy,-20);
 			transform.position = mypos;
 		}
-		if ( Gamemanagement.gameisalive == false){
+		if ( Gamemanagement.gameisalive == false && Gamemanagement.firsttime == true){
 			mypos = new Vector3 (15,-33.79374f,-20);
+			transform.position = mypos;
+		}
+		if ( Gamemanagement.gameisalive == false && Gamemanagement.firsttime == false){
+			mypos = new Vector3 (15,-10,-20);
 			transform.position = mypos;
 		}
 	}

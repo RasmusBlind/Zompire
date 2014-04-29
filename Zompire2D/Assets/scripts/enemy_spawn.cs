@@ -19,12 +19,17 @@ public class enemy_spawn : MonoBehaviour {
 	}
 
 	void Update () {
-		if (Timer < Time.time) { //compares current time and time stored in the variable 
+		if (Timer < Time.time && Gamemanagement.gameisalive == true) { //compares current time and time stored in the variable 
 			randomrangey = Random.Range(-20.0f , 20.0f); //determines the range in y direction where enemys can spawn
 			randomrangex = Random.Range(-3.5f , 3.5f); //determines the range in x directetion where enemys can spawn
 			Vector2 spawnposition = new Vector2(transform.position.x + randomrangex , transform.position.y + randomrangey); //Finds a random position for an enemy within the range
 			Instantiate(EnemySpawn, spawnposition, transform.rotation); //Instantiates/create the enemy at the random position
 			Timer = Time.time + nextspawn;
+		}
+		if ( Gamemanagement.gameisalive == false){
+
+			Destroy(gameObject);
+
 		}
 	}
 }

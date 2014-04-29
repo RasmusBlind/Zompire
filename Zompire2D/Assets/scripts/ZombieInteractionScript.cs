@@ -13,6 +13,7 @@ public class ZombieInteractionScript : MonoBehaviour {
 	private float droprate;
 	private bool keyhasdropped = false;
 
+
 	void OnCollisionEnter2D(Collision2D Hit){
 		if (Hit.gameObject.tag == "Bullet"){
 			ScoreController.score+=10; //The score increments
@@ -24,8 +25,6 @@ public class ZombieInteractionScript : MonoBehaviour {
 				Instantiate(key,transform.position,Quaternion.identity);
 				keyhasdropped = true;
 			}
-
-
 		}
 	}
 	void OnCollisionStay2D(Collision2D playerHit){
