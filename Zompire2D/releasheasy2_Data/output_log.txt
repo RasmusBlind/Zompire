@@ -29,3 +29,9 @@ FullResetD3DDevice
 ResetD3DDevice
 dev->Reset
 D3Dwindow device not lost anymore
+HandleD3DDeviceLost
+  HandleD3DDeviceLost: needs reset, doing it
+FullResetD3DDevice
+ResetD3DDevice
+dev->Reset
+D3Dwindow device not lost anymore
