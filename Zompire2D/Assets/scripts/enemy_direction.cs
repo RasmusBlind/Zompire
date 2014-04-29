@@ -6,9 +6,6 @@ public class enemy_direction : MonoBehaviour {
 	private GameObject target;
 	public float moveSpeed;
 
-	void Start () {
-
-	}
 	
 	// Update is called once per frame
 	void Update () {
@@ -20,6 +17,5 @@ public class enemy_direction : MonoBehaviour {
 			Destroy(gameObject);
 
 		}
-
 	}
 }

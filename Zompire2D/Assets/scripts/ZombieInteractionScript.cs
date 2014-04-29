@@ -20,9 +20,8 @@ public class ZombieInteractionScript : MonoBehaviour {
 			Instantiate(BloodSplash,transform.position,Quaternion.identity); // make the bloodsplash
 			droprate = Random.Range(0.0f,100.0f); // take the drop chance of the key
 			// check if the key has dropped and if the key should drop
-			if (droprate < dropchance && Gamemanagement.keyhasdropped == false){
+			if (droprate < dropchance){
 				Instantiate(key,transform.position,Quaternion.identity); // instantiate  the key
-				Gamemanagement.keyhasdropped = true; // tells the gamemanager that the key has dropped is it do not drop agian
 			}
 			Destroy (gameObject); // destroy the Zombie
 		}
