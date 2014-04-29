@@ -56,7 +56,7 @@ public class simple_movement : MonoBehaviour {
 			shoot.Play(); // play the soud of shooting
 		}
 		// this if statement will check if the player is dead
-		if (playerhealth < 0.0f){
+		if (playerhealth <= 0.0f){
 			if(playonce == true){ // we play the audio once 
 				dethtime = Time.time + 1.2f; // set death timer
 				deathrattle.Play (); // plays deathrattle audio
@@ -68,6 +68,7 @@ public class simple_movement : MonoBehaviour {
 				Instantiate(skull,transform.position,transform.rotation);  // instantiate a skull at the dead position
 				Gamemanagement.gameisalive = false;// set the game to be "dead"
 				playgameoversound.playonce = true; // next time the player die we can play the audio again
+				Debug.Log(playerhealth);
 			}
 
 
