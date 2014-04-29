@@ -19,12 +19,12 @@ public class simple_movement : MonoBehaviour {
 	private bool hitbycactus = false; // this is use to make the push back of the character
 	public float pushbackforce = 5; // this will set the pushback force when the character is hit by the cactus
 
-	private bool playonce = true;
-	private float dethtime;  
-	public GameObject skull;
+	private bool playonce = true; // make sure that the audio on death only plays once
+	private float dethtime;   // set the time of how long the player takes to die
+	public GameObject skull; // hold an object to be the Players skull
 
 
-	public static bool gotkey = false;
+	public static bool gotkey = false; // a bool that will be set to true if the player gets the key
 
 	private bool shotpos = true; // with this bool i change barrol of the gun shot
 	void Update (){
@@ -33,7 +33,7 @@ public class simple_movement : MonoBehaviour {
 
 		Vector2 movement = new Vector2(moveHorizontal,moveVertical); // here we make the move vector
 		 
-		if (hitbycactus == false){
+		if (hitbycactus == false){ 
 			rigidbody2D.velocity = movement * speed; // this will move the character if he is not hit by the cactus
 		} else {
 			hitbycactus = false; // make sure that we go make to not hit by cactus 
@@ -55,18 +55,19 @@ public class simple_movement : MonoBehaviour {
 			}
 			shoot.Play(); // play the soud of shooting
 		}
+		// this if statement will check if the player is dead
 		if (playerhealth < 0.0f){
-			if(playonce == true){
-				dethtime = Time.time + 1.2f;
-				deathrattle.Play ();
+			if(playonce == true){ // we play the audio once 
+				dethtime = Time.time + 1.2f; // set death timer
+				deathrattle.Play (); // plays deathrattle audio
 				playonce = false;
 			}
 			
 			if(dethtime<Time.time){
 				Destroy(gameObject); // if the player has 0 health he is kill by removing him from the game
-				Instantiate(skull,transform.position,transform.rotation);
-				Gamemanagement.gameisalive = false;
-				playgameoversound.playonce = true;
+				Instantiate(skull,transform.position,transform.rotation);  // instantiate a skull at the dead position
+				Gamemanagement.gameisalive = false;// set the game to be "dead"
+				playgameoversound.playonce = true; // next time the player die we can play the audio again
 			}
 
 
@@ -75,14 +76,14 @@ public class simple_movement : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D hit){
 		if( hit.gameObject.tag == "cactus"){// if the player collide with the cactus he will loose health and the pushback bool will be true
-			playerhealth -= 1.0f;
-			Debug.Log(playerhealth);
-			hitbycactus = true; 
+			playerhealth -= 1.0f; // subtract health from the player
+			hitbycactus = true; // for push back effect
 			cactushurt.Play(); // plays sound of cacturhurt 
 		}
+		// if the player collide with the key he will have the key and can win the game
 		if ( hit.gameObject.tag == "key"){
-			gotkey = true;
-			Destroy(hit.gameObject);
+			gotkey = true; // the boolean that that chang if the player has the key
+			Destroy(hit.gameObject); // destroy the key
 		}
 	}
 }

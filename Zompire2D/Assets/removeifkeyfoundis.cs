@@ -4,7 +4,7 @@ using System.Collections;
 public class removeifkeyfoundis : MonoBehaviour {
 	
 
-	// Update is called once per frame
+	//  this script make sure that all key disapear if the player has the key
 	void Update () {
 		if(simple_movement.gotkey == true){
 

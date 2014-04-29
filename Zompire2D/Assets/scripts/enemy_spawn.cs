@@ -8,7 +8,7 @@ public class enemy_spawn : MonoBehaviour {
 
 	//Declaing variables
 	public Transform EnemySpawn; //is public so it can be modified within unity. Can be attached to the enemy prefab, or other types of enemys.
-	private float Timer; 
+	private float Timer;  // a timer of how long between each mudhole spawn
 	public float nextspawn = 1.0f; //the time between each enemy spawn, set to a default of 1 second - can be modified in unity
 	private float randomrangey;
 	private float randomrangex;
