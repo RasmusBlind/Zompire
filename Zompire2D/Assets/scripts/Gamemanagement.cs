@@ -9,6 +9,8 @@ public class Gamemanagement : MonoBehaviour {
 	private Vector3 playerpos; // this vector will be where the player will be instantiated
 	private Vector3 spawnerpos; // this vector will be where the spawner will be instantiated
 
+	public static bool keyhasdropped = false; // should make sure that the key to win the game do not drop two times
+
 	void Start () {
 		playerpos = new Vector3(-14.99599f, -39.40869f, 0.0f); // here the position of the player is set
 		spawnerpos = new Vector3(-15.0f, 0.0f, 0.0f); // here the position of the spawner is set
@@ -18,12 +20,17 @@ public class Gamemanagement : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyUp(KeyCode.P) && gameisalive == false){ // look for if the key P has been pressed and if the game is not alive if not instantiate player and spawner
 
-			Instantiate(player, playerpos, Quaternion.identity); // instantiate the player at his position
+			GameObject go = Instantiate(player, playerpos, Quaternion.identity) as GameObject; // instantiate the player at his position
+			followplayer.instance.playerTransform  = go.transform;
+
 			Instantiate(spawner, spawnerpos , Quaternion.identity); // instantiate the spawner at its position
 			gameisalive = true; // set the game to be alive
 			ScoreController.score = 0; // set the score to 0 in the ScoreController Script
 			simple_movement.playerhealth = 100; // set the health to 100 in the movement script
 			firsttime = false; // make sure that next time game stop it will go to game over screen in stead of titel
+			keyhasdropped = false; // so the key can drop agian
+			simple_movement.gotkey = false;
+			followplayer.win = false;
 
 		}
 
